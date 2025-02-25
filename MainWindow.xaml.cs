@@ -18,12 +18,11 @@ namespace PR3
 
         private void btnCalculate_Click(object sender, RoutedEventArgs e)
         {
-            // Очистка всех полей вывода
+
             txtGrossTotal.Text = "";
             txtTaxAmount.Text = "";
             txtNetTotal.Text = "";
 
-            // Вызов функции рассчета зарплаты
             CalculateSalary();
         }
 
@@ -31,21 +30,18 @@ namespace PR3
         {
             decimal hours;
 
-            // 1. Обработка чисел с плавающей точкой и проверка ввода
             if (!decimal.TryParse(txtHours.Text, out hours))
             {
                 MessageBox.Show("Некорректный ввод часов. Введите числовое значение.");
                 return;
             }
 
-            // 2. Проверка на отрицательные значения
             if (hours < 0)
             {
                 MessageBox.Show("Количество часов не может быть отрицательным.");
                 return;
             }
 
-            // 3. Валидация больших чисел (максимальное количество часов в неделю)
             if (hours > 168)
             {
                 MessageBox.Show("Слишком большое количество часов.");
